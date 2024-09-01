@@ -1,25 +1,32 @@
 package global.banking;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
- * 1. [7,2,5,1,6,4]
- * 2.  7 min 7 - 7 =0
- * 3.  2 min 2 - 2 =0
- * 3.  2 min 5-2 =3
- * 4.  1 min 5 -1 = 4
- * 5   1 min 6-1 =5
+ * First Try
  */
 public class Algo {
 
     public static void main(String[] args) {
-        int[] array = {7, 2, 5, 1, 6, 4};
-        int min = Integer.MAX_VALUE;
-        int max = Integer.MIN_VALUE;
-        for (int i = 0; i < array.length; i++) {
-            min = Math.min(min, array[i]);
-            max = Math.max(max, array[i] - min);
+        int[] nums = {11, 2, 15, 7};
+        //int[] nums = {7, 2};
+        int target = 9;
+        int flag1 = 0;
+        int flag2 = 0;
+        boolean found = false;
+        for (int i = 0; i < nums.length - 1 && !found; i++) {
+            for (int j = i + 1; j < nums.length; j++) {
+                if (Math.addExact(nums[i], nums[j]) == target) {
+                    flag1 = i;
+                    flag2 = j;
+                    found = true;
+                    break;
+                }
+            }
         }
-        System.out.println(max);
+        System.out.println(flag1);
+        System.out.println(flag2);
     }
 }
