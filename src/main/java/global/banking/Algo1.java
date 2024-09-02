@@ -24,9 +24,8 @@ public class Algo1 {
         Map<Integer, Integer> map = new HashMap<>();
         for (int i = 0; i < nums.length; i++) {
             int completion = target - nums[i];
-            Integer completionIndex = map.get(completion);
-            if (completionIndex != null) {
-                position1 =completionIndex;
+            if (map.get(completion) != null) {
+                position1 =map.get(completion);
                 position2 = i;
                 break;
             }
